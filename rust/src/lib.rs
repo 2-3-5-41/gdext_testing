@@ -26,8 +26,8 @@ impl CharacterBody2DVirtual for Ball {
     }
     fn physics_process(&mut self, delta: f64) {
         if let Some(collision) = self.body.move_and_collide(self.direction * delta as f32) {
-            let reflect = collision.get_remainder().reflect(collision.get_normal());
-            self.direction = self.direction.reflect(collision.get_normal());
+            let reflect = collision.get_remainder().bounce(collision.get_normal());
+            self.direction = self.direction.bounce(collision.get_normal());
             godot_print!("---[gdext]--- \nReflect: {:?} \nDirection: {:?} \n-------------", reflect, self.direction);
             self.body.move_and_collide(reflect);
         } else {
