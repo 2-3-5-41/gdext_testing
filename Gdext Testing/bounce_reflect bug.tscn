@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://dxtd86ld60qjn"]
+[gd_scene load_steps=9 format=3 uid="uid://dxtd86ld60qjn"]
 
+[ext_resource type="Texture2D" uid="uid://ilharohsytt6" path="res://godot-ferris.svg" id="1_ggcdb"]
 [ext_resource type="Texture2D" uid="uid://gkrxiqvs4ncy" path="res://icon.svg" id="1_ta3fl"]
 [ext_resource type="Script" path="res://ball.gd" id="2_vuvg8"]
 
@@ -47,7 +48,8 @@ shape = SubResource("WorldBoundaryShape2D_q6pev")
 position = Vector2(328, 224)
 
 [node name="Sprite2D" type="Sprite2D" parent="Ball"]
-texture = ExtResource("1_ta3fl")
+position = Vector2(0.999998, 0.999998)
+texture = ExtResource("1_ggcdb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
 shape = SubResource("RectangleShape2D_mpepl")
