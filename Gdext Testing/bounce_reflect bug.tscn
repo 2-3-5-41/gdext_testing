@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://dxtd86ld60qjn"]
+
+[ext_resource type="Texture2D" uid="uid://gkrxiqvs4ncy" path="res://icon.svg" id="1_ta3fl"]
+[ext_resource type="Script" path="res://ball.gd" id="2_vuvg8"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6bjud"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xw3vo"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lfxo1"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_q6pev"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mpepl"]
+size = Vector2(130, 126)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 328)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_6bjud")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(592, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("WorldBoundaryShape2D_xw3vo")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(1152, 304)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource("WorldBoundaryShape2D_lfxo1")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(592, 648)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+shape = SubResource("WorldBoundaryShape2D_q6pev")
+
+[node name="Ball" type="Ball" parent="."]
+position = Vector2(328, 224)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball"]
+texture = ExtResource("1_ta3fl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+shape = SubResource("RectangleShape2D_mpepl")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(480, 224)
+script = ExtResource("2_vuvg8")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("1_ta3fl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_mpepl")
